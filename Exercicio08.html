@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Exercícios - JavaScript</title>
+		<meta charset="utf-8">		
+	</head>
+	<body>
+		<h2>Calcular Diagnóstico</h2><hr>
+            
+		<p>Código do paciente: <input type="text" id="codPaciente" placeholder= "Digite o código"></p>
+        <p>Código p/ Infecção dos pulmões: 0 – Ausente/ 1 - Presente<input type="text" id="infeccao" placeholder="Digite o código"></p>
+        <p>Código p/ Temperatura: 0 – Normal / 1 - Anormal<input type="text" id="temperatura" placeholder="Digite o código"></p>
+        <p>Código p/ Corisa: 0 – Ausente/ 1 - Presente<input type="text" id="corisa" placeholder="Digite o código"></p>
+        <p>Código p/ Espirro: 0 – Ausente/ 1 - Presente<input type="text" id="espirro" placeholder="Digite o código"></p>
+        <input type="button" id="adicionar" value="Adicionar Paciente"></p>
+        <input type="button" id="exibir" value="Exibir Resultado">
+        <pre id="resposta"></pre>
+        <script>
+            var paciente = [];
+            function adicionarPaciente () {
+                var codPaciente = parseInt(Number(document.getElementById("codPaciente").value));
+                var infeccao = parseInt(Number(document.getElementById("infeccao").value));
+                var temperatura = parseInt(Number(document.getElementById("temperatura").value));
+                var corisa = parseInt(Number(document.getElementById("corisa").value));
+                var espirro = parseInt(Number(document.getElementById("espirro").value));
+                var resposta = document.getElementById("resposta");
+                
+                
+                paciente.push({CodigoP: codPaciente , InfeccaoP: infeccao , TemperaturaP: temperatura , CorisaP: corisa , EspirroP: espirro})
+                console.log(paciente[0]);
+            }
+
+            function mostrarDiagnostico() {
+                resposta.textContent = "";
+                for (var i = 0; i < paciente.length; i++) {
+                
+                    if((paciente[i].InfeccaoP + paciente[i].TemperaturaP) == 2 && (paciente[i].CorisaP + paciente[i].EspirroP) == 0) {
+                        resposta.textContent = resposta.textContent + "O paciente cujo código é "+ paciente[i].CodigoP + " está diagnosticado com = Pneumonia" + "\n";
+                    }
+                    
+                    else if((paciente[i].InfeccaoP + paciente[i].TemperaturaP + paciente[i].CorisaP + paciente[i].EspirroP) === 1) {
+                        resposta.textContent = resposta.textContent + "O paciente cujo código é "+ paciente[i].CodigoP + " está diagnosticado com = Gripe" + "\n";
+                    }
+                   
+                    else if((paciente[i].CorisaP + paciente[i].EspirroP + paciente[i].InfeccaoP) || (paciente[i].CorisaP + paciente[i].EspirroP + paciente[i].TemperaturaP) === 3) {
+                        resposta.textContent = resposta.textContent + "O paciente cujo código é "+ paciente[i].CodigoP + " está diagnosticado com = Resfriado" + "\n";
+                    }
+                }
+
+            }
+            var adicionar = document.getElementById("adicionar");
+            adicionar.addEventListener("click" , adicionarPaciente);
+
+            var exibir = document.getElementById("exibir");
+            exibir.addEventListener("click" , mostrarDiagnostico);
+        </script>
+    </body>
+</html>

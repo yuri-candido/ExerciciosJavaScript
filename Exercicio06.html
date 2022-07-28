@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Exercícios - JavaScript</title>
+		<meta charset="utf-8">		
+	</head>
+	<body>
+		<h2>Calcular Notas</h2><hr>
+		<p><input type="text" id="valor" placeholder= "Digite um valor"></p>
+        <p><input type="button" id="calcular" value="Calcule aqui"></p>
+        <pre id="resposta"></pre>
+        <script>
+            function calcularNotas() {
+                var resposta = document.getElementById("resposta");
+                var valor = Number(document.getElementById("valor").value);
+                var nota50 , nota10 , nota5, nota1 = 0;
+                var resto50, resto10, resto5, resto1 = 0;  
+                // entrada 212
+                nota50 = parseInt((valor / 50)); // = 4
+                resto50 = valor % 50; // 12
+
+                nota10 = parseInt((resto50 / 10)); // 1 cédula
+                resto10 = resto50 % 10; // resto 2
+
+                nota5 = parseInt((resto10 / 5)) // 2 / 5 = 0
+                resto5 = resto10 % 5; // resto 2
+                
+                nota1 = parseInt((resto5 / 1)); // 2
+                resto1 = resto5 % 1;
+               
+                resposta.textContent = "As notas de 50 são: " + nota50 + "\n" +
+                "As notas de 10 são: " + nota10 + "\n" +
+                "as notas de 5 são: " + nota5 + "\n" + 
+                "As notas de 1 são: " + nota1;
+
+            }
+            var calcular = document.getElementById("calcular");
+            calcular.addEventListener("click" , calcularNotas);
+        </script>
+    </body>
+</html>

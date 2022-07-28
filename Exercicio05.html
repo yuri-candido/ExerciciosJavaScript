@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Exercícios - JavaScript</title>
+		<meta charset="utf-8">		
+	</head>
+	<body>
+		<h2>Prestações Consórcio</h2><hr>
+		<p><input type="text" id="total" placeholder= "Total de Prestações"></p>
+        <p><input type= "text" id="pagas" placeholder="Qnt Prestações Pagas"></p>
+		<p><input type= "text" id="valor" placeholder="Valor Atual Prestação"></p>
+        <p><input type="button" id="calcular" value="Calcule aqui"></p>
+        <p id="resposta"></p>
+        <script>
+            function calcularResultado() {
+             let total = Number(document.getElementById("total").value);
+             let pagas = Number(document.getElementById("pagas").value);
+             let valor = Number(document.getElementById("valor").value);
+             let resposta = document.getElementById("resposta");
+             let devedor = 0
+            
+             devedor = (total * valor) - (pagas * valor);
+             total = total - pagas;
+
+             resposta.textContent = "Você está devendo " + devedor + " reais. Faltam " + total + 
+             " parcelas a serem pagas!"
+
+            }
+        var calcular = document.getElementById("calcular");
+        calcular.addEventListener("click" , calcularResultado);
+        </script>
+    </body>
+</html>

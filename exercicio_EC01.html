@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <title>Exercício 01 - JS</title>
+    </head>
+    <body>
+        <h2><header> Calculo Par ou Ímpar  </header></h2> </body><hr/>
+
+
+
+        <p>Digite um número: <input type="number" id="num1" /> </p> 
+        <p> <input type="button" value="Calcular" id="resultado"> </p>
+        <p id="resposta"></p> 
+
+        
+    <script>       
+        var numero01 = document.getElementById("num1");
+        var parimpar = document.getElementById("resposta");
+        function exibirResultado() {            
+            if (numero01.value % 2 == 0 ) {   
+               parimpar.textContent = "Seu número é par!";
+            }
+            else{
+                parimpar.textContent = "Seu número é impar!";
+            }
+        }
+    
+        var resultado = document.getElementById("resultado");
+        resultado.addEventListener("click" , exibirResultado); 
+
+
+
+    </script>
+</body>
+</html>

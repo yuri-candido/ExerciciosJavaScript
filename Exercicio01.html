@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Exercício - JavaScript</title>
+    </head>
+    <body>
+        <h2>Calcular Área</h2><hr>
+        <input type="text" placeholder ="Digite o raio" id ="raio"/>
+        <input type="button" id="calcular" value="Calcule aqui">
+        <p id="resposta"></p>
+    
+        <script>
+            function exibirCalculo() {
+                    var raio = Number(document.getElementById("raio").value);
+                    var area = 3.14 * raio**2
+                    var resposta = document.getElementById("resposta");
+                    resposta.textContent = "A área é: " + area;               
+               
+            }
+
+            var calcular = document.getElementById("calcular");
+            calcular.addEventListener("click" , exibirCalculo);
+        </script>
+    </body>
+</html>

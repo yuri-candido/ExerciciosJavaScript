@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <title>Exercício JS</title>
+    </head>
+    <body>
+        <h2>Programa - Calcular Aprovados</h2><hr/>
+        <p>Digite o nome do candidato <input type="text" id="candidato" ></p>
+        <p>Digite o número de acertos: <input type="number" id="acertos"></p>
+        <p>Digite a média para aprovação: <input type="number" id="media" placeholder="A média é um valor fixo"> </p>
+        <p><input type="button" id="adicionar" value="Adicionar"></p>
+        <p><input type="button" id="aprovados" value="Lista dos Aprovados"></p>
+        <pre id="lista"></pre>
+        <pre id="aprovacao"></pre>
+
+        <script>
+            var acertos = document.getElementById("acertos");
+            var candidato = document.getElementById("candidato");
+            var media = document.getElementById("media");
+            var aprovacao = document.getElementById("aprovacao");            
+            var adicionar = document.getElementById("adicionar");
+            var aprovados = document.getElementById("aprovados");
+                        
+            var lista = document.getElementById("lista");
+            
+            var candidatosTotais = [];
+
+            adicionar.addEventListener("click" , adicionarCandidatos);
+            aprovados.addEventListener("click" , exibirAprovado);
+            
+            
+            function adicionarCandidatos () {
+                
+                lista.textContent = "";
+                candidatosTotais.push({ acertos: Number(acertos.value) , candidatos: candidato.value});
+                for ( i = 0; i < candidatosTotais.length; i++ ) {
+                    
+                    lista.textContent= lista.textContent + ("Nome: " + candidatosTotais[i].candidatos + " - Acertos: " + candidatosTotais[i].acertos + "\n");
+                }
+                
+                
+            }
+
+            function exibirAprovado () {
+                var todosReprovados = 0;
+                var bons = "";
+                for (var i = 0; i < candidatosTotais.length ; i++) {
+                    if (candidatosTotais[i].acertos >= media.value) {
+                        bons = bons + candidatosTotais[i].candidatos + "\n";
+                       todosReprovados = 1;
+                    }
+
+                }
+
+                if (todosReprovados == 0) {
+                    aprovacao.textContent = "Todos os candidatos estão reprovados!" ;}
+                
+                else {
+                
+                aprovacao.textContent = "APROVADOS: \n" + bons; }
+            }
+
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Exercícios - JavaScript</title>
+		<meta charset="utf-8">		
+	</head>
+	<body>
+        <h2> Conversor de Moeda </h2><hr>
+        <p><input type="text" id="real" placeholder="Digite o valor em real"></p>
+        <p><input type="text" id="cotacaodolar" placeholder="Digite a cotação do dólar"></p>
+        <p><input type="text" id="cotacaoeuro" placeholder="Digite a cotação do euro"></p>
+        <p><input type="button" id="calcularcotacao" value="Calcule aqui"></p>
+        <p id="resposta"></p>
+         <script>
+            function calcularCotacao() {
+                let real = Number(document.getElementById("real").value);
+                let cotacaodolar = Number(document.getElementById("cotacaodolar").value);
+                let cotacaoeuro = Number(document.getElementById("cotacaoeuro").value);
+                let calcularcotacao = document.getElementById("calcularcotacao");
+                let resposta = document.getElementById("resposta");
+                let real2 = real
+
+                real = real / cotacaodolar;
+                real2 = real2 / cotacaoeuro;
+
+                resposta.textContent = "O valor em dolár é " + real.toFixed(2) + " e o valor em euro é " + real2.toFixed(2);
+                
+            }
+                var calcularcotacao = document.getElementById("calcularcotacao");
+                calcularcotacao.addEventListener("click" , calcularCotacao);
+        </script>
+
+       
+    
+    </body>
+</html>

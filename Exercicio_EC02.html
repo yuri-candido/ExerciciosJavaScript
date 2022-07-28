@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <title>Exercício 02 - JS</title>
+    </head>
+    <body>
+        <h2><p>Calculo de Multa  </p></h2><hr/>
+
+        <p>Digite a velocidade permitida na estrada: <input type="number" id="velPermitida">   </p>
+        <p>Digita a velocidade que você estava: <input type="number" id="velMotorista"> </p>
+        <p><input type="button" value="Calcule aqui" id="Calcular"> </p>
+        <p id="situação"></p>
+
+        <script>
+            
+            
+            
+            function exibirResultado () {
+                let velPermitida = Number(document.getElementById("velPermitida").value);
+                let velMotorista = Number(document.getElementById("velMotorista").value);
+                let situação = document.getElementById("situação");
+                if (velMotorista <= velPermitida ) 
+                {   situação.textContent = "Sem multa!";
+
+                }
+
+                else if((velMotorista >= velPermitida) && (velMotorista <= (velPermitida +  (0.2 * velPermitida)))) 
+                {
+                    situação.textContent = "Multa leve!";
+
+                }
+
+                else if( velMotorista > (velPermitida +  (0.2 * velPermitida)))
+                {
+                    situação.textContent = "Multa grave!";
+
+                }
+                
+                }
+
+             
+
+             var calcular = document.getElementById("Calcular");
+             calcular.addEventListener("click" , exibirResultado);
+        </script>
+        
+    
+    
+    
+    
+    
+    
+    
+    </body>
+    </html>

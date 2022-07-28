@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Exercícios - JavaScript</title>
+		<meta charset="utf-8">		
+	</head>
+	<body>
+        <h2> Calculo Novo Salário </h2><hr>
+        <p><input type="text" id="salarioatual" placeholder= "Digite seu salário"></p>
+        <p><input type= "text" id="reajuste" placeholder="Porcentagem de Reajuste"></p>
+        <p><input type="button" id="calculareajuste" value="Calcule aqui"></p>
+        <p id="resposta"></p>
+        <script>
+            function calcularReajuste() {
+                let salarioatual = Number(document.getElementById("salarioatual").value);
+                let reajuste = Number(document.getElementById("reajuste").value);
+                reajuste = reajuste/100;
+                let novosalario = 0;
+
+                novosalario = salarioatual + (reajuste*salarioatual);
+                resposta.textContent = "Seu novo salário é: " + novosalario;
+                //resposta.textContent = "olá"
+            }
+            var calculareajuste = document.getElementById("calculareajuste");
+            calculareajuste.addEventListener("click" , calcularReajuste);
+
+        </script>         
+    </body>
+</html>

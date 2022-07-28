@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Exercício Abacaxi</title>
+  </head>
+  <body>
+  	<h1>Repetição de asterísticos</h1>
+    <hr />
+
+  	<p>Digite um número: <input type="text" id="numero">
+  	<p> <input type="button" id="calcular" value="Clique aqui"> </p>
+  	<pre id="resposta"></pre>
+
+  	<script>
+  		
+  		function resultado() {
+  			
+  	   var numero = Number(document.getElementById("numero").value);
+  	   var resposta = document.getElementById("resposta");
+       var soma = "";
+       var total = [];
+  			
+
+        for( var i = 0; i < numero; i++) {
+  					soma = soma + "*";
+            total[i] = soma;
+           
+          }
+        resposta.textContent = total.join("\n");    
+      } 
+          
+          
+  		var calcular = document.getElementById("calcular");
+  		calcular.addEventListener("click" , resultado);
+
+
+
+
+
+
+  	</script>
+    </body>
+ </html>

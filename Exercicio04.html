@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Exercícios - JavaScript</title>
+		<meta charset="utf-8">		
+	</head>
+	<body>
+		<h2>Calcular Arrecadação de Picolés</h2><hr>
+		<p><input type="text" id="qnttipo1" placeholder= "Quantidade tipo 1"></p>
+        <p><input type= "text" id="qnttipo2" placeholder="Quantidade tipo 2"></p>
+		<p><input type= "text" id="qnttipo3" placeholder="Quantidade tipo 3"></p>
+        <p><input type="button" id="calculararrecadacao" value="Calcule aqui"></p>
+        <p id="resposta"></p>
+        <script>
+
+		    function calcularArrecadacao() {
+				let qnttipo1 = Number(document.getElementById("qnttipo1").value);
+				let qnttipo2 = Number(document.getElementById("qnttipo2").value);
+				let qnttipo3 = Number(document.getElementById("qnttipo3").value);
+				let resposta = document.getElementById("resposta");
+				let qnttotal = 0;
+
+				var picole =[];
+				picole.push({tipo:"1" , preco:0.5}); //0
+				picole.push({tipo:"2" , preco:0.6}); //1
+				picole.push({tipo:"3" , preco:0.1}); //2
+
+				qnttipo1 = qnttipo1 * picole[0].preco;
+				qnttipo2 = qnttipo2 * picole[1].preco;
+				qnttipo3 = qnttipo3 * picole[2].preco;
+				qnttotal = qnttipo1 + qnttipo2 + qnttipo3;
+
+				resposta.textContent = "A arrecação, em reais, do tipo 1 foi de " + qnttipo1 + ", a do tipo 2 foi de " + 
+				qnttipo2 + ", a do tipo 3 foi de " + qnttipo3 + ". A quantidade total arrecadada foi de " + qnttotal + " reais.";
+
+
+			}
+			var calculararrecadacao = document.getElementById("calculararrecadacao");
+			calculararrecadacao.addEventListener("click" , calcularArrecadacao);
+
+        </script>    
+    </body>
+</html>

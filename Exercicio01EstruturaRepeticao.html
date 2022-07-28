@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Exercício Abacaxi</title>
+  </head>
+  <body>
+    <h1>Repetição de frutas</h1>
+    <hr />
+
+    <p>Digite uma fruta: <input type="text" id="fruta" /></p>
+    <p>
+      Digite um número para repetir a quantidade da palavra digitada:
+      <input type="number" id="qnt" />
+    </p>
+    <p><input type="button" id="calcular" value="Clique aqui" /></p>
+    <pre id="resposta"></pre>
+
+    <script>
+      
+
+
+      function gerarRepeticao() {
+        
+        var fruta = document.getElementById("fruta").value;
+        var qnt = Number(document.getElementById("qnt").value);
+        var resposta = document.getElementById("resposta");
+        for (var i = 0; i<=qnt-1; i++)
+        {
+          resposta.textContent = resposta.textContent  + fruta + ","; 
+          
+        }
+      
+      
+          
+      } 
+
+      var calcular = document.getElementById("calcular");
+      calcular.addEventListener("click", gerarRepeticao);
+    </script>
+  </body>
+</html>

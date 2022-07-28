@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Exercícios - JavaScript</title>
+		<meta charset="utf-8">		
+	</head>
+	<body>
+		<h2>Calcular Categoria</h2><hr>
+		<p><input type="text" id="idade" placeholder= "Digite sua idade"></p>
+        <p><input type="button" id="calcular" value="Calcule aqui"></p>
+        <pre id="resposta"></pre>
+        <script>
+            function categorizarNadador() {
+                let idade = Number(document.getElementById("idade").value);
+                if (idade >= 5 && idade <= 7) {
+                    resposta.textContent = "Sua categoria é INFANTIL A!";
+                }
+
+                if (idade >= 8 && idade <= 10 ) {
+                    resposta.textContent = "Sua categoria é INFANTIL B!";
+                }
+
+                if (idade >= 11 && idade <= 13 ) {
+                    resposta.textContent = "Sua categoria é JUVENIL A!";
+                }
+
+                if (idade >= 14 && idade <= 17 ) {
+                    resposta.textContent = "Sua categoria é JUVENIL B!";
+                }
+
+                if ( idade >= 18) {
+                    resposta.textContent = "Sua categoria é Adulto!";
+                }
+            }
+
+            var calcular = document.getElementById("calcular");
+            calcular.addEventListener("click" , categorizarNadador);        
+        </script>        
+    </body> 
+</html>
+
+

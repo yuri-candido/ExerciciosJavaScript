@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <title>Exercício JS</title>
+    </head>
+    <body>
+        <h2>Programa - Calcular Ordem dos Números</h2><hr/>
+        <p> Digite o número: <input type="number" id="numero" value="digite aqui"></p>
+        <input type="button" id="adicionar" value="Adicionar">
+        <input type="button" id="calcularOrdem" value="Calcular Ordem">
+        <p id="resposta"></p>
+        <p id="ordem"></p>
+
+        <script>
+            var vetor = [];
+            var numero = (document.getElementById("numero"));
+            var resposta = document.getElementById("resposta");
+            var crescente = [];
+            var ordem = document.getElementById("ordem");
+            function adicionarValor () {
+                
+                if (vetor.indexOf(numero.value) == -1) {
+                    vetor.push(numero.value);                    
+                    resposta.textContent = "lista de números: " + vetor;
+                
+                } 
+                
+                else { 
+                    resposta.textContent = "O número já existe. Coloque outro número.";
+                 
+                }
+                
+            }
+
+            var adicionar = document.getElementById("adicionar");
+            adicionar.addEventListener("click" , adicionarValor);
+
+            function calcularOrdenamento () {
+                
+                for ( var i = 0; i < vetor.length; i++) {
+                    if ( i != vetor.length-1) { 
+                        if (vetor[i + 1] > vetor[i]) {
+                            crescente.push(1); } 
+                        else {
+                            crescente.push(0);
+                        }
+                    }
+                    
+                }
+                
+                if ( crescente.indexOf(0) == -1){
+                    ordem.textContent = "Os números estão em ordem crescente!";
+                } 
+                else {
+                    ordem.textContent = "Os números não estão em ordem crescente!"; 
+                }
+        }
+            
+        var calcularOrdem = document.getElementById("calcularOrdem");
+        calcularOrdem.addEventListener("click" , calcularOrdenamento);
+
+
+
+        </script>
+
+
+
+
+
+    </body>
+</html>
